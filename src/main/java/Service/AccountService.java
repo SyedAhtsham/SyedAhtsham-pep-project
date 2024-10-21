@@ -21,4 +21,8 @@ public class AccountService {
         return null;
     }
 
+    public Account logInToAccount(Account account){
+        return new Account();
+    }
+
 }
