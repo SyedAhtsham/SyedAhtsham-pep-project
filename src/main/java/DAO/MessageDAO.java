@@ -4,6 +4,7 @@ import java.sql.*;
 
 import Model.Message;
 import Util.ConnectionUtil;
+import java.util.*;
 
 public class MessageDAO {
     
@@ -35,8 +36,29 @@ public class MessageDAO {
         }
 
         return null;
-        
-        
+    }
+
+    public List<Message> retrieveAllMessages(){
+        Connection connection = ConnectionUtil.getConnection();
+        List<Message> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * from message";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+                list.add(new Message(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getLong(4)));
+
+            }
+
+        } catch (SQLException e) {
+            // TODO: handle exception
+            System.out.println(e.getMessage());
+        }
+
+        return list;
     }
 
 }
