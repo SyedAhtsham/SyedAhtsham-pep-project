@@ -22,7 +22,7 @@ public class AccountService {
     }
 
     public Account logInToAccount(Account account){
-        return new Account();
+        return accountDAO.logInAccount(account);
     }
 
 }
