@@ -22,7 +22,7 @@ public class MessageService {
 
     public Message createNewMessage(Message message){
         
-        if(message.getMessage_text()!="" && message.getMessage_text().length()<255 && accountDAO.checkIfExist(message.getPosted_by()) ){
+        if(message.getMessage_text()!="" && message.getMessage_text().length()<255 && accountDAO.checkIfExistByAccoundID(message.getPosted_by()) ){
             return messageDAO.insertMessage(message);
         }
         

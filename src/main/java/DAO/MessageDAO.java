@@ -8,6 +8,11 @@ import java.util.*;
 
 public class MessageDAO {
     
+    /*
+    * Insert a new message into the database
+    * @param message a Message object containing all fields exept message_id (since this will be auto-incremented in database)
+    * @return message object containing the newly generated message_id and all other fields
+    */
     public Message insertMessage(Message message){
         
         Connection connection = ConnectionUtil.getConnection();
@@ -38,6 +43,11 @@ public class MessageDAO {
         return null;
     }
 
+    /*
+    * Retrieve all messages stored in the database
+    * @param
+    * @return all messages stored in a List
+    */
     public List<Message> retrieveAllMessages(){
         Connection connection = ConnectionUtil.getConnection();
         List<Message> list = new ArrayList<>();
@@ -61,7 +71,11 @@ public class MessageDAO {
         return list;
     }
 
-    // retrive single message given a message_id
+    /*
+    * Retrieve a single message from database
+    * @param message a Message object containing all fields exept message_id (since this will be auto-incremented in database)
+    * @return message object containing the newly generated message_id and all other fields
+    */
     public Message retrieveSingleMessage(int message_id){
         Connection connection = ConnectionUtil.getConnection();
         
@@ -85,7 +99,11 @@ public class MessageDAO {
         return null;
     }
 
-
+    /*
+    * Remove a message from the database based on its id
+    * @param messageID the id of message that we want to delete
+    * @return 
+    */
     public void deleteMessageByID(int messageID){
         Connection connection = ConnectionUtil.getConnection();
 
@@ -94,7 +112,7 @@ public class MessageDAO {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, messageID);
                 preparedStatement.executeUpdate();
-
+            connection.close();
         } catch (SQLException e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
@@ -102,7 +120,11 @@ public class MessageDAO {
 
     }
 
-
+    /*
+    * Update message text of a message already stored in database
+    * @param messageID the id of message that we want to update, and the new message text that we want to over write
+    * @return 
+    */
     public void updateMessageText(int messageID, String newMessageText){
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -113,14 +135,18 @@ public class MessageDAO {
             preparedStatement.setInt(2, messageID);
 
             preparedStatement.executeUpdate();
-
+            connection.close();
         } catch (SQLException e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
         }
     }
 
-
+    /*
+    * Retrieve all messages from database sent by a specific user
+    * @param accountID this is the account id of the specific user stored in database
+    * @return List of message objects having foreign keys of account_id (means corresponding to that user)
+    */
     public List<Message> retrieveAllMessagesByUser(int account_id){
         Connection connection = ConnectionUtil.getConnection();
         List<Message> allMessages = new ArrayList<>();

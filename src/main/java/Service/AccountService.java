@@ -14,7 +14,7 @@ public class AccountService {
     }
 
     public Account registerAccount(Account account){
-        if(account.getUsername()!="" && account.password.length()>=4 && !accountDAO.checkIfAlreadyExist(account.getUsername())){
+        if(account.getUsername()!="" && account.password.length()>=4 && !accountDAO.checkIfExistByUsername(account.getUsername())){
             return accountDAO.insertAccount(account);
         }
 
