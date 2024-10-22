@@ -39,6 +39,26 @@ public class MessageService {
     }
 
     public Message deleteMessage(int message_id){
-        return messageDAO.deleteMessageByID(message_id);
+        Message message = messageDAO.retrieveSingleMessage(message_id);
+        if(message==null){
+            return null;
+        }
+        messageDAO.deleteMessageByID(message_id);
+        return message;
+        
     }
+
+    public Message updateMessage(int message_id, String newMessageText){
+        // if the message doesn't exist
+        if( messageDAO.retrieveSingleMessage(message_id)==null){
+            return null;
+        }
+        if(newMessageText!="" && newMessageText.length()<255){
+            messageDAO.updateMessageText(message_id, newMessageText);
+            return messageDAO.retrieveSingleMessage(message_id);
+        }
+        return null;
+        
+    }
+
 }
