@@ -61,4 +61,8 @@ public class MessageService {
         
     }
 
+    public List<Message> getAllMessagesByUser(int accountID){
+        return messageDAO.retrieveAllMessagesByUser(accountID);
+    }
+
 }
