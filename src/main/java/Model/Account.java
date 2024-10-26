@@ -83,6 +83,7 @@ public class Account {
     public String getPassword() {
         return password;
     }
+    
     /**
      * Properly named getters and setters are necessary for Jackson ObjectMapper to work. You may use them as well.
      * @param password
@@ -90,6 +91,7 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
+
     /**
      * Overriding the default equals() method adds functionality to tell when two objects are identical, allowing
      * Assert.assertEquals and List.contains to function.

@@ -112,7 +112,7 @@ public class MessageDAO {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, messageID);
                 preparedStatement.executeUpdate();
-            connection.close();
+
         } catch (SQLException e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
@@ -135,7 +135,7 @@ public class MessageDAO {
             preparedStatement.setInt(2, messageID);
 
             preparedStatement.executeUpdate();
-            connection.close();
+            
         } catch (SQLException e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
