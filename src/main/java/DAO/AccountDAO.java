@@ -20,7 +20,7 @@ public class AccountDAO {
         
         try {
 
-            String sql = "insert into account (username, password) values (?, ?)";
+            String sql = "INSERT INTO account (username, password) VALUES (?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, account.getUsername());
@@ -54,7 +54,7 @@ public class AccountDAO {
         
         Connection connection = ConnectionUtil.getConnection();
         try{
-            String sql = "Select * from account where username=?";
+            String sql = "SELECT * FROM account WHERE username=?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
@@ -79,7 +79,7 @@ public class AccountDAO {
     public boolean checkIfExistByAccoundID(int id){
         Connection connection = ConnectionUtil.getConnection();
         try{
-            String sql = "Select * from account where account_id=?";
+            String sql = "SELECT * FROM account WHERE account_id=?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -104,7 +104,7 @@ public class AccountDAO {
     public Account logInAccount(Account account){
         Connection connection = ConnectionUtil.getConnection();
         try {
-            String sql = "Select * from account where username=? AND password=?";
+            String sql = "SELECT * FROM account WHERE username=? AND password=?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, account.getUsername());
