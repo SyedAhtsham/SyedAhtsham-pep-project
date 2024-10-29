@@ -36,7 +36,6 @@ public class MessageDAO {
             }
 
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 
@@ -64,7 +63,6 @@ public class MessageDAO {
             }
 
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 
@@ -92,7 +90,6 @@ public class MessageDAO {
             }
 
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 
@@ -114,7 +111,6 @@ public class MessageDAO {
                 preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 
@@ -137,7 +133,6 @@ public class MessageDAO {
             preparedStatement.executeUpdate();
             
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
     }
@@ -161,7 +156,6 @@ public class MessageDAO {
             }
             
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 

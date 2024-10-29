@@ -2,10 +2,7 @@ package DAO;
 
 import Model.Account;
 import Util.ConnectionUtil;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AccountDAO {
     
@@ -38,7 +35,6 @@ public class AccountDAO {
 
 
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
         
@@ -117,7 +113,6 @@ public class AccountDAO {
             }
             
         } catch (SQLException e) {
-            // TODO: handle exception
             System.out.println(e.getMessage());
         }
 
